@@ -1,21 +1,44 @@
-<h2>My Tasks</h2>
-<form method="GET" action="/tasks">
-  <input type="text" name="search" placeholder="Search tasks">
-  <button type="submit">Search</button>
+<h2 class="mb-4">My Tasks</h2>
+
+<!-- Search Form -->
+<form method="GET" class="mb-4">
+  <div class="input-group">
+    <input type="text" name="search" class="form-control" placeholder="Search tasks..." value="{{search}}">
+    <button class="btn btn-outline-secondary" type="submit">Search</button>
+    <a href="/tasks" class="btn btn-outline-danger">Reset</a>
+  </div>
 </form>
-<a href="/tasks/add" class="btn btn-success mt-2">Add New Task</a>
-<table class="table mt-3">
-  <tr><th>Title</th><th>Status</th><th>Actions</th></tr>
+
+<!-- Status Filters -->
+<div class="mb-3">
+  <a href="/tasks?status=Pending" class="btn btn-warning me-2">Pending</a>
+  <a href="/tasks?status=Completed" class="btn btn-success">Completed</a>
+</div>
+
+<a href="/tasks/add" class="btn btn-primary mb-4">+ Add New Task</a>
+
+<!-- Task List -->
+<div class="row g-3">
   {{#each tasks}}
-    <tr>
-      <td>{{this.title}}</td>
-      <td>{{this.status}}</td>
-      <td>
-        <a href="/tasks/edit/{{this._id}}" class="btn btn-warning btn-sm">Edit</a>
-        <form action="/tasks/delete/{{this._id}}?_method=DELETE" method="POST" style="display:inline;">
-          <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-        </form>
-      </td>
-    </tr>
+    <div class="col-md-4">
+      <div class="card h-100 {{#if (eq this.status 'Completed')}}card-completed{{else}}card-pending{{/if}}">
+        <div class="card-body">
+          <h5 class="card-title">{{this.title}}</h5>
+          <p class="card-text">{{this.description}}</p>
+          <p>
+            <span class="badge {{#if (eq this.status 'Completed')}}bg-success{{else}}bg-warning text-dark{{/if}}">
+              {{this.status}}
+            </span>
+          </p>
+        </div>
+        <div class="card-footer d-flex justify-content-between">
+          <a href="/tasks/edit/{{this._id}}" class="btn btn-sm btn-outline-primary">Edit</a>
+          <form method="POST" action="/tasks/delete/{{this._id}}?_method=DELETE" class="d-inline">
+            <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
+          </form>
+        </div>
+      </div>
+    </div>
   {{/each}}
-</table>
+</div>
+

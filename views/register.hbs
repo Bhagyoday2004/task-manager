@@ -1,6 +1,15 @@
-<h2>Register</h2>
-<form action="/users/register" method="POST">
-  <input type="text" name="username" placeholder="Username" required><br>
-  <input type="password" name="password" placeholder="Password" required><br>
-  <button type="submit" class="btn btn-primary">Register</button>
-</form>
+<div class="auth-box">
+  <h3 class="mb-4 text-center">Register</h3>
+  <form method="POST">
+    <div class="mb-3">
+      <label class="form-label">Username</label>
+      <input type="text" name="username" class="form-control" required>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Password</label>
+      <input type="password" name="password" class="form-control" required>
+    </div>
+    <button type="submit" class="btn btn-success w-100">Register</button>
+    <a href="/users/login" class="d-block mt-3 text-center">Already have an account?</a>
+  </form>
+</div>

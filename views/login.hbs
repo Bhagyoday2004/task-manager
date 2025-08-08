@@ -1,7 +1,16 @@
-<h2>Login</h2>
-<form action="/users/login" method="POST">
-  <input type="text" name="username" placeholder="Username" required><br>
-  <input type="password" name="password" placeholder="Password" required><br>
-  <button type="submit" class="btn btn-success">Login</button>
-</form>
-<a href="/users/github" class="btn btn-dark mt-2">Login with GitHub</a>
+<div class="auth-box">
+  <h3 class="mb-4 text-center">Login</h3>
+  <form method="POST">
+    <div class="mb-3">
+      <label class="form-label">Username</label>
+      <input type="text" name="username" class="form-control" required>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Password</label>
+      <input type="password" name="password" class="form-control" required>
+    </div>
+    <button type="submit" class="btn btn-primary w-100">Login</button>
+    <a href="/users/register" class="d-block mt-3 text-center">Create an account</a>
+    <a href="/users/github" class="btn btn-dark w-100 mt-2">Login with GitHub</a>
+  </form>
+</div>

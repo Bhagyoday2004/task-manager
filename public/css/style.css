@@ -1,1 +1,137 @@
-body { padding: 20px; }
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* General */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f8f9fa;
+  color: #212529;
+  transition: background-color 0.3s, color 0.3s;
+  min-height: 100vh;
+}
+
+/* Fade-in animation */
+.fade-in {
+  animation: fadeUp 0.4s ease-in-out;
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Dark Mode Body */
+body.dark-mode {
+  background-color: #121212;
+  color: #f1f1f1;
+}
+
+/* Navbar */
+.navbar {
+  transition: background-color 0.3s;
+}
+body.dark-mode .navbar {
+  background-color: #1f1f1f !important;
+}
+body.dark-mode .navbar a.nav-link,
+body.dark-mode .navbar .navbar-brand {
+  color: #f1f1f1 !important;
+}
+
+/* Cards */
+.card {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s, background-color 0.3s;
+  background-color: #fff;
+  border-radius: 10px;
+}
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-pending {
+  border-left: 5px solid #ffc107;
+}
+
+.card-completed {
+  border-left: 5px solid #28a745;
+}
+
+body.dark-mode .card,
+body.dark-mode .bg-white {
+  background-color: #1e1e1e;
+  color: #f1f1f1;
+}
+
+/* Auth Box */
+.auth-box {
+  max-width: 420px;
+  margin: 5rem auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+body.dark-mode .auth-box {
+  background-color: #1e1e1e;
+  color: #f1f1f1;
+}
+
+/* Buttons */
+.btn-toggle-dark {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  border-radius: 50px;
+  z-index: 1000;
+  padding: 10px 14px;
+  font-size: 18px;
+}
+
+.btn-primary,
+.btn-success,
+.btn-outline-danger {
+  border-radius: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+body.dark-mode .btn {
+  border-color: #666;
+}
+body.dark-mode .btn-primary,
+body.dark-mode .btn-success {
+  background-color: #333;
+  border-color: #444;
+}
+
+/* Forms */
+.form-control,
+.form-select {
+  border-radius: 6px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode .form-control,
+body.dark-mode .form-select {
+  background-color: #2c2c2c;
+  color: #f1f1f1;
+  border-color: #555;
+}
+
+/* Alerts */
+.alert {
+  transition: 0.3s ease-in-out;
+}
+body.dark-mode .alert {
+  background-color: #2c2c2c;
+  color: #fff;
+  border-color: #444;
+}
+
+/* Footer or Additional Styling (Optional) */
+footer {
+  padding: 1rem 0;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #888;
+}

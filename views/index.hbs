@@ -1,3 +1,11 @@
-<h1>Welcome to Task Manager</h1>
-<p>Manage your tasks easily.</p>
-<a href="/public" class="btn btn-primary">View Public Task List</a>
+<div class="text-center p-5 bg-white shadow rounded">
+  <h1>Welcome to Task Manager</h1>
+  <p class="lead">Login or Register to manage your personal tasks, or view the public list.</p>
+  {{#if user}}
+    <a href="/tasks" class="btn btn-primary">Go to My Tasks</a>
+  {{else}}
+    <a href="/users/login" class="btn btn-success me-2">Login</a>
+    <a href="/users/register" class="btn btn-outline-success">Register</a>
+  {{/if}}
+  <a href="/public" class="btn btn-link d-block mt-3">View Public Tasks</a>
+</div>
